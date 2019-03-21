@@ -4,10 +4,9 @@ use strict;
 use LWP::UserAgent;
 use HTTP::Request::Common;
 
-my $username = $ARGV[ 0 ];
-if ( not defined $username ) {
-  die "Usage: $0 GROUP_ID\n";
-}
+#if ( not defined $username ) {
+#  die "Usage: $0 USERNAME\n";
+#}
 
 # run receiver process
 my $receiver_pid = fork;
@@ -56,17 +55,17 @@ system q{mm-throughput-graph 500 /tmp/contest_uplink_log > /dev/null}
 print "\n";
 
 # gzip logfile
-print q{Uploading data to server...};
+#print q{Uploading data to server...};
 
-my $www = LWP::UserAgent->new();
-my $request = POST 'http://cs344g.keithw.org/cgi-bin/6829/upload-data',
-  Content_Type => 'multipart/form-data',
-  Content => [contents => ['/tmp/contest_uplink_log', $username]];
+#my $www = LWP::UserAgent->new();
+#my $request = POST 'http://cs344g.keithw.org/cgi-bin/6829/upload-data',
+#  Content_Type => 'multipart/form-data',
+#  Content => [contents => ['/tmp/contest_uplink_log', $username]];
 
-my $response = $www->request( $request );
+#my $response = $www->request( $request );
 
-print qq{ done.\n\n};
+#print qq{ done.\n\n};
 
-print $response->decoded_content;
+#print $response->decoded_content;
 
-print "\n";
+#print "\n";
