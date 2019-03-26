@@ -6,7 +6,7 @@ use HTTP::Request::Common;
 
 my $username = $ARGV[ 0 ];
 if ( not defined $username ) {
-  die "Usage: $0 GROUP_ID\n";
+  die "Usage: $0 GROUP_NICKNAME\n";
 }
 
 # run receiver process
